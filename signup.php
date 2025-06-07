@@ -31,6 +31,7 @@ session_start(); // Ensure session starts before checking messages
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/body.css">
   <link rel="stylesheet" href="./css/form-signup.css">
+  <link rel="stylesheet" href="./css/form-container.css">
 </head>
 <body>
 
