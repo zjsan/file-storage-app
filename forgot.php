@@ -22,7 +22,8 @@
 
   <form action="reset_password.php" method="POST">
     <input type="text" name="username" placeholder="Enter your username" required>
-    <input type="password" name="new_password" placeholder="New password" required>
+    <input type="password" name="new_password" placeholder="New password" required minlength="6">
+    <input type="password" name="confirm_password" placeholder="Confirm password" required minlength="6">
     <button type="submit">Reset Password</button>
   </form>
 

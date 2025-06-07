@@ -4,9 +4,17 @@ require_once 'config/db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username']);
     $newPassword = $_POST['new_password'];
+    $confirmPassword = $_POST['confirm_password'];
 
-    if (empty($username) || empty($newPassword)) {
+
+    
+    if (empty($username) || empty($newPassword)  || empty($confirmPassword)) {
         header("Location: forgot.php?error=Please fill in all fields");
+        exit;
+    }
+
+    if($newPassword != $confirmPassword ){
+        header("Location: forgot.php?error=Passwords does not matched!");
         exit;
     }
 
