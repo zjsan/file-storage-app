@@ -1,13 +1,15 @@
 <?php
+session_start();
 require_once 'config/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = trim($_POST["username"]);
     $password = $_POST["password"];
 
-    // Basic validation
     if (empty($username) || empty($password)) {
-        die("All fields are required.");
+        $_SESSION['error'] = "All fields are required.";
+        header("Location: signup.php");
+        exit;
     }
 
     // Check if username exists
@@ -15,19 +17,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute([$username]);
 
     if ($stmt->rowCount() > 0) {
-        die("Username already exists.");
+        $_SESSION['error'] = "Username already exists. Try another.";
+        header("Location: signup.php");
+        exit;
     }
 
-    // Hash password
+    // Hash and insert
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-    // Insert new user
     $insert = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+
     if ($insert->execute([$username, $hashedPassword])) {
-        header("Location: login.php?signup=success");
+        $_SESSION['success'] = "Account created successfully. You can now log in.";
+        header("Location: signup.php");
         exit;
     } else {
-        die("Error creating account.");
+        $_SESSION['error'] = "Something went wrong. Please try again.";
+        header("Location: signup.php");
+        exit;
     }
 }
-?>

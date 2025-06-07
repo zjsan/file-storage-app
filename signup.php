@@ -1,10 +1,28 @@
 <?php
-session_start();
-if (isset($_SESSION['user_id'])) {
-    header("Location: index.php"); // Redirect if already logged in
-    exit;
-}
+session_start(); // Ensure session starts before checking messages
 ?>
+
+<script>
+<?php if (isset($_SESSION['success'])): ?>
+  alert("<?= $_SESSION['success']; ?>");
+  <?php unset($_SESSION['success']); ?>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['error'])): ?>
+  alert("<?= $_SESSION['error']; ?>");
+  <?php unset($_SESSION['error']); ?>
+<?php endif; ?>
+</script>
+
+
+
+<?php if (isset($_SESSION['error'])): ?>
+  <div class="error" style="color: red; font-size: 0.9rem; margin-bottom: 1rem;">
+    <?= $_SESSION['error']; unset($_SESSION['error']); ?>
+    echo '<script>alert("Fail")</script>';
+  </div>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
