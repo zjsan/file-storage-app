@@ -1,0 +1,33 @@
+.form-box { 
+background: #fff; 
+padding: 2rem; 
+border-radius: 8px; 
+box-shadow: 0 0 8px rgba(0,0,0,0.1); 
+width: 100%; 
+max-width: 400px; 
+}
+
+input{ 
+    width: 100%; 
+    padding: 0.6rem 0.6rem 0.6rem 0.6rem; 
+    margin: 0.5rem 0; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    max-width: 50rem;
+    }
+
+button { 
+    background: #007bff; 
+    padding: 0.8rem 0.8rem 0.8rem 0.8rem; 
+    color: white;
+    border: none;
+ }
+button:hover { 
+    background: #0069d9; 
+}
+.error { 
+    color: red; 
+}
+.success { 
+    color: green;
+ }
