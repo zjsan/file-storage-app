@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
         $targetPath = $uploadDir . time() . '_' . $fileName;
 
         // Optional: limit file types and size
-        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf', 'video/mp4', 'video/mpeg'];
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'application/pdf', 'video/mp4', 'video/mpeg', 'txt'];
         if (!in_array($fileType, $allowedTypes)) {
             $message .= "<p style='color:red;'>File type not allowed: $fileName</p>";
             continue;
@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
                 ':file_path' => $targetPath
             ]);
 
-            $message .= "<p style='color:green;'>Uploaded successfully: $fileName</p>";
+            echo "<script>alert('Uploaded successfully: $fileName');</script>";
         } else {
-            $message .= "<p style='color:red;'>Failed to upload: $fileName</p>";
+            echo "<script>alert('Failed to upload: $fileName');</script>";
         }
     }
 }
