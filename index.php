@@ -35,10 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
 
         if (move_uploaded_file($fileTmp, $targetPath)) {
             // Insert metadata into DB
-            $stmt = $conn->prepare("INSERT INTO files (user_id, file_name, file_type, file_size, file_path, uploaded_at) VALUES (?, ?, ?, ?, ?, NOW())");
-            $stmt->bind_param("issis", $userId, $fileName, $fileType, $fileSize, $targetPath);
-            $stmt->execute();
-            $stmt->close();
+             // With this (PDO version):
+            $sql = "INSERT INTO files (user_id, file_name, file_type, file_size, file_path, uploaded_at) 
+                    VALUES (:user_id, :file_name, :file_type, :file_size, :file_path, NOW())";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([
+                ':user_id' => $userId,
+                ':file_name' => $fileName,
+                ':file_type' => $fileType,
+                ':file_size' => $fileSize,
+                ':file_path' => $targetPath
+            ]);
 
             $message .= "<p style='color:green;'>Uploaded successfully: $fileName</p>";
         } else {
