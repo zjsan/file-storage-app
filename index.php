@@ -13,25 +13,30 @@ if (!isset($_SESSION['user_id'])) {
   <title>Dashboard - KeepUp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <h1>Welcome, <?= htmlspecialchars($_SESSION['username']) ?>!</h1>
-</header>
+<nav>
+  <div class="logo">📁 KeepUp</div>
+  <div class="nav-links">
+    <a href="index.php">Home</a>
+    <a href="upload.php">Upload</a>
+    <a href="myfiles.php">My Files</a>
+    <a href="logout.php">Sign Out</a>
+  </div>
+</nav>
 
 <main>
   <div class="card">
-    <h2>📁 KeepUp</h2>
-    <p>A cozy, secure digital space where you can upload, view, and manage your documents, images, and videos — anytime, anywhere.</p>
-  </div>
-
-  <div class="actions">
-    <a href="upload.php">Upload Files</a>
-    <a href="myfiles.php">My Files</a>
-    <a href="logout.php" class="logout">Sign Out</a>
+    <h2>Welcome, <?= htmlspecialchars($_SESSION['username']) ?> 👋</h2>
+    <p>Securely manage your documents, images, and videos across any device. Use the links above to start uploading or managing your files.</p>
   </div>
 </main>
+
+</body>
 
 </body>
 </html>
