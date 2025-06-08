@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
   <div class="nav-links">
     <a href="index.php">Home</a>
     <a href="upload.php">Upload</a>
-    <a href="myfiles.php">My Files</a>
+    <a href="updatefiles.php">My Files</a>
     <a href="logout.php">Sign Out</a>
   </div>
 </nav>
