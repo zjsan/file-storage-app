@@ -21,6 +21,12 @@ if (!isset($_SESSION['user_id'])) {
 
 <nav>
   <div class="logo">📁 KeepUp</div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+    </div>
   <div class="nav-links">
     <a href="index.php">Home</a>
     <a href="upload.php">Upload</a>
@@ -36,6 +42,9 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 </main>
 
+
+
+<script src="./js/hamburger.js"></script>
 </body>
 
 </body>
