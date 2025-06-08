@@ -87,6 +87,7 @@ main {
     transition: 0.4s;
 }
 
+
 @media (max-width: 768px) {
 
      .hamburger {
