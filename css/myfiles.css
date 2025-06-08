@@ -1,22 +1,113 @@
-.file-list { 
-    max-width: 800px; 
-    margin: 20px auto; 
-    padding: 10px; 
+.file-list {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-.file-row {
+
+.file-list h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.file-card {
     display: flex;
-    justify-content: space-between;
-    background: #f5f5f5;
-    padding: 10px;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.file-card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.file-header {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #222;
     margin-bottom: 8px;
-    border-radius: 6px;
-    flex-wrap: wrap;
 }
-.file-actions a {
-    margin-left: 10px;
-    color: red;
+
+.file-meta {
+    color: #555;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.file-actions {
+    margin-top: 5px;
+}
+
+.file-actions a, .file-actions button {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 6px 12px;
+    font-size: 0.85em;
+    color: white;
+    background-color: #007bff;
     text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
 }
+
+.file-actions a:hover, .file-actions button:hover {
+    background-color: #0056b3;
+}
+
+.file-actions a.delete {
+    background-color: #dc3545;
+}
+.file-actions a.delete:hover {
+    background-color: #b02a37;
+}
+.file-actions a.rename {
+    background-color: #ffc107;
+    color: black;
+}
+.file-actions a.rename:hover {
+    background-color: #d39e00;
+}
+
+.rename-form {
+    margin-top: 10px;
+}
+
+.rename-form input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-right: 10px;
+    width: 50%;
+}
+
+.rename-form button {
+    padding: 6px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.rename-form button:hover {
+    background-color: #218838;
+}
+
 @media (max-width: 600px) {
-    .file-row { flex-direction: column; align-items: flex-start; }
+    .file-actions {
+        display: flex;
+        flex-direction: column;
+    }
+    .file-actions a, .file-actions button {
+        margin-bottom: 8px;
+    }
 }
